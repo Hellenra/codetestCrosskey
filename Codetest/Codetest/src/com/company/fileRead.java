@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class fileRead {
 
-    //Remove quotation marks and comma from "Clarencé,Andersson"
+    //Input a string, in this case "Clarencé,Andersson", removes the quotation marks and the comma, then returns the string.
     private static String stringHandle(String input) {
         String output = "";
         boolean withinQuotes = false;
@@ -27,7 +27,7 @@ public class fileRead {
         return output.replace("\"", "");
     }
 
-    //This function reads the file,
+    //This function reads the file, does the calculation and prints the results
     public static void fileReader() {
 
         try {
@@ -37,9 +37,11 @@ public class fileRead {
             //Loop from second line
             fileScan.nextLine();
 
+            //While loop as long as there are more lines in the file
             while (fileScan.hasNextLine()) {
                 String data = fileScan.nextLine();
 
+                //Splits the data on commas, removes '.'
                 if(data != null && data.length() > 1) {
                     data = stringHandle(data);
                     String[] newString = data.split(",");
